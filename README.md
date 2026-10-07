@@ -200,8 +200,8 @@ Deshabilitar enlaces automáticos
 # Crear la tabla de direccionamiento
 Claro, aquí tienes la tabla en **Markdown lista para copiar**:
 
-```
+
 | Dispositivo / Interfaz | VLAN | Segmento de Red Base | Dirección IP a Calcular / Configurar | Máscara de Subred | Gateway por Defecto |
 |---|---:|---|---|---|---|
 | R1-Core-ELO (G0/0/0.10) | 10 | 192.168.10.0/24 | 192.168.10.254 | 255.255.255.0 | No aplica |
-```
+
