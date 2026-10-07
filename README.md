@@ -2,7 +2,7 @@
 ## sub titulo
 ### sub sub titulo
 *negritas*
-![diagrama de topologia 1](/imgs/1-diagrama.png)
+
 
 
 
@@ -85,6 +85,5 @@ Deshabilitar enlaces automáticos
 `https://www.neoguias.com`
 
 # Crear el diagrama y cablear acorde a la topologia.
-<img width="1440" height="900" alt="diagrama" src="https://github.com/user-attachments/assets/4dfa9457-348e-4a4a-bc2b-1a8fac5440dd" />
-
-
+![diagrama de topologia 1](/imgs/1-diagrama.png)
+> creando la topologia
