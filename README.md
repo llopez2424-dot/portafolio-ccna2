@@ -205,3 +205,9 @@ Claro, aquí tienes la tabla en **Markdown lista para copiar**:
 |---|---:|---|---|---|---|
 | R1-Core-ELO (G0/0/0.10) | 10 | 192.168.10.0/24 | 192.168.10.254 | 255.255.255.0 | No aplica |
 
+
+```cisco
+sw1-dd>enable
+sw1-dd>configure terminal
+
+```
