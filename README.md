@@ -39,7 +39,7 @@
 
 # Asignar nombre a los dispositivos con tus iniciales al final
 
-```cisco
+```bash
 Switch>enable
 Switch#configure terminal
 Enter configuration commands, one per line.  End with CNTL/Z.
