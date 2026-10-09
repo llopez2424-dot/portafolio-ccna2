@@ -47,5 +47,32 @@ Switch(config)#hostname sw-core-lmlr
 sw-core-lmlr(config)#end
 sw-core-lmlr#
 ```
+>cambie el nombre del switch central
+```bash
+S1#configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+S1(config)#hostname sw-lab1-lmlr
+sw-lab1-lmlr(config)#end
+sw-lab1-lmlr#
+```
+>cambie el nombre del switch uno
 
+```bash
+S2>enable
+S2#configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+S2(config)#hostname SW-LAB2-LMLR
+SW-LAB2-LMLR(config)#END
+SW-LAB2-LMLR#
+```
+>cambie el nombre del switch dos
+```cisco
+Router>enable
+Router#configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#hostname r1-core-lmlr
+r1-core-lmlr(config)#end
+r1-core-lmlr#
+```
+>cambie el nombre del router
 
