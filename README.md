@@ -39,6 +39,15 @@
 
 # Asignar nombre a los dispositivos con tus iniciales al final
 
+```cisco
+Switch>enable
+Switch#configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#hostname sw-core-lmlr
+sw-core-lmlr(config)#end
+sw-core-lmlr#
+```
+
 
 
 ```shell
