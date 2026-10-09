@@ -76,3 +76,4 @@ r1-core-lmlr#
 ```
 >cambie el nombre del router
 
+# Realizar las tareas de configuracion básica de sw y router (contraseñas), y mensaje del dia
