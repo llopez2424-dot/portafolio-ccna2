@@ -77,3 +77,69 @@ r1-core-lmlr#
 >cambie el nombre del router
 
 # Realizar las tareas de configuracion básica de sw y router (contraseñas), y mensaje del dia.
+```bash
+acceso restringido - solo personal autorizado 
+
+r1-core-lmlr>enable
+Password: 
+r1-core-lmlr#config
+Configuring from terminal, memory, or network [terminal]? 
+Enter configuration commands, one per line.  End with CNTL/Z.
+
+# === CONFIGURACIÓN DE SEGURIDAD Y CONTRASENAS ===
+r1-core-lmlr(config)#enable secret class
+r1-core-lmlr(config)#service password-encryption
+r1-core-lmlr(config)#banner motd % acceso restringido - solo personal autorizado %
+
+# === CONFIGURACIÓN DE SUBINTERFACES ===
+r1-core-lmlr(config)#interface g0/0.10
+r1-core-lmlr(config-subif)# encapsulation dot1Q 10
+r1-core-lmlr(config-subif)# ip address 192.168.10.254 255.255.255.0
+r1-core-lmlr(config-subif)# exit
+r1-core-lmlr(config)#
+%LINK-3-UPDOWN: Interface GigabitEthernet0/0/0.10, changed state to down
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0/0/0.10, changed state to up
+
+r1-core-lmlr(config)#interface g0/0.20
+r1-core-lmlr(config-subif)# encapsulation dot1Q 20
+r1-core-lmlr(config-subif)# ip address 192.168.20.254 255.255.255.0
+r1-core-lmlr(config-subif)# exit
+r1-core-lmlr(config)#
+%LINK-3-UPDOWN: Interface GigabitEthernet0/0/0.20, changed state to down
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0/0/0.20, changed state to up
+
+r1-core-lmlr(config)#interface g0/0.30
+r1-core-lmlr(config-subif)# encapsulation dot1Q 30
+r1-core-lmlr(config-subif)# ip address 192.168.30.254 255.255.255.0
+r1-core-lmlr(config-subif)# exit
+%LINK-3-UPDOWN: Interface GigabitEthernet0/0.30, changed state to down
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0/0/0.30, changed state to up
+
+r1-core-lmlr(config)#interface go/0.99
+                                ^
+% Invalid input detected at '^' marker.
+	
+r1-core-lmlr(config)#interface g0/0.30
+r1-core-lmlr(config-subif)# encapsulation dot1Q 30
+r1-core-lmlr(config-subif)# ip address 192.168.30.254 255.255.255.0
+r1-core-lmlr(config-subif)# exit
+r1-core-lmlr(config)#interface g0/0.99
+r1-core-lmlr(config-subif)# encapsulation dot1Q 99
+r1-core-lmlr(config-subif)# ip address 192.168.99.254 255.255.255.0
+r1-core-lmlr(config-subif)# exit
+r1-core-lmlr(config)#interface g0/0.111
+r1-core-lmlr(config-subif)# encapsulation dot1Q 111 native
+r1-core-lmlr(config-subif)# ip address 192.168.111.254 255.255.255.0
+r1-core-lmlr(config-subif)# exit
+%LINK-3-UPDOWN: Interface GigabitEthernet0/0/0.99, changed state to down
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0/0/0.99, changed state to up
+
+%LINK-3-UPDOWN: Interface GigabitEthernet0/0/0.111, changed state to down
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0/0/0.111, changed state to up
+```
+
