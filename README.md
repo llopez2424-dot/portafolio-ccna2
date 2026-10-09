@@ -143,3 +143,43 @@ r1-core-lmlr(config-subif)# exit
 %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0/0/0.111, changed state to up
 ```
 
+# Crear las VLANs
+
+
+```cisco
+Switch>enable
+Switch#configure terminal
+Switch(config)#vlan 10
+Switch(config-vlan)#administrativos
+Switch(config-vlan)#exit
+```
+
+```cisco
+Switch>enable
+Switch#configure terminal
+Switch(config)#vlan 20
+Switch(config-vlan)#name alumnos
+Switch(config-vlan)#exit
+```
+```cisco
+Switch>enable
+Switch#configure terminal
+Switch(config)#vlan 30
+Switch(config-vlan)#name direccion
+Switch(config-vlan)#exit
+```
+```cisco
+Switch>enable
+Switch#configure terminal
+Switch(config)#vlan 99
+Switch(config-vlan)#name gestion
+Switch(config-vlan)#exit
+```
+```cisco
+Switch>enable
+Switch#configure terminal
+Switch(config)#vlan 111
+Switch(config-vlan)#name nativa
+Switch(config-vlan)#exit
+```
+
