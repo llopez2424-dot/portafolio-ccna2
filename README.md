@@ -37,6 +37,9 @@
 | **PC-Direccion-B** | SW-Lab2 -> Fa0/7 | 30 | **192.168.30.2/24** | 192.168.30.254 |
 
 
+# Asignar nombre a los dispositivos con tus iniciales al final
+
+
 
 ```shell
 sw1-dd>enable
