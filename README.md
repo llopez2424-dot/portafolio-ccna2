@@ -55,3 +55,9 @@ sw1-dd>enable
 sw1-dd>configure terminal
 
 ```
+```bash
+SW-Piso1# show vlan brief
+10  Administracion                  active    Fa0/1, Fa0/2
+20  Ventas                          active    Fa0/3, Fa0/4
+```
+
