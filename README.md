@@ -79,9 +79,7 @@ r1-core-lmlr#
 # Realizar las tareas de configuracion básica de sw y router (contraseñas), y mensaje del dia.
 
 
-# Configuración básica de Switches y Router - LMLR
-
-## 1. Switch Core - sw-core-lmlr
+## sw-core-lmlr
 
 ```text
 enable
@@ -106,7 +104,7 @@ end
 copy running-config startup-config
 ```
 
-## 2. Switch de acceso - sw-lab1-lmlr
+## sw-lab1-lmlr
 
 ```text
 enable
@@ -130,12 +128,12 @@ banner motd # ACCESO SOLO A PERSONAL AUTORIZADO #
 end
 copy running-config startup-config
 ```
-## 3 Switch de acceso - sw-lab-2lmlr
+## sw-lab-2 lmlr
 
 ```text
 enable
 configure terminal
-hostname sw-lab1-lmlr
+hostname sw-lab2-lmlr
 enable secret Cisco123
 service password-encryption
 
@@ -159,7 +157,7 @@ copy running-config startup-config
 
 
 
-
+## configuracion router
 
 ```bash
 acceso restringido - solo personal autorizado 
@@ -266,4 +264,11 @@ Switch(config)#vlan 111
 Switch(config-vlan)#name nativa
 Switch(config-vlan)#exit
 ```
-
+```cisco
+Switch>enable
+Switch#configure terminal
+Switch(config)#vlan 999
+Switch(config-vlan)#name Blackhole
+Switch(config-vlan)#exit
+```
+# Asignar los puertos a las VLANS
