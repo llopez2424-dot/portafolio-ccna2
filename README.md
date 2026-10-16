@@ -272,3 +272,31 @@ Switch(config-vlan)#name Blackhole
 Switch(config-vlan)#exit
 ```
 # Asignar los puertos a las VLANS
+## sw-core-lmlr
+``` interface fa0/9
+ switchport mode access
+ switchport access vlan 99
+ no shutdown
+ exit
+```
+## sw-lab1-lmlr
+interface range fa0/1-3
+ switchport mode access
+ switchport access vlan 10
+ no shutdown
+ exit
+
+interface range fa0/4-6
+ switchport mode access
+ switchport access vlan 20
+ no shutdown
+ exit
+
+interface fa0/7
+ switchport mode access
+ switchport access vlan 30
+ no shutdown
+ exit
+```
+# verificar la configuracion de la vlan
+
