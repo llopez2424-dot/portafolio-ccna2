@@ -77,6 +77,90 @@ r1-core-lmlr#
 >cambie el nombre del router
 
 # Realizar las tareas de configuracion básica de sw y router (contraseñas), y mensaje del dia.
+
+
+# Configuración básica de Switches y Router - LMLR
+
+## 1. Switch Core - sw-core-lmlr
+
+```text
+enable
+configure terminal
+hostname sw-core-lmlr
+enable secret Cisco123
+service password-encryption
+
+line console 0
+ password Consola123
+ login
+ exit
+
+line vty 0 4
+ password Remoto123
+ login
+ exit
+
+banner motd # ACCESO SOLO A PERSONAL AUTORIZADO #
+
+end
+copy running-config startup-config
+```
+
+## 2. Switch de acceso - sw-lab1-lmlr
+
+```text
+enable
+configure terminal
+hostname sw-lab1-lmlr
+enable secret Cisco123
+service password-encryption
+
+line console 0
+ password Consola123
+ login
+ exit
+
+line vty 0 4
+ password Remoto123
+ login
+ exit
+
+banner motd # ACCESO SOLO A PERSONAL AUTORIZADO #
+
+end
+copy running-config startup-config
+```
+## 3 Switch de acceso - sw-lab-2lmlr
+
+```text
+enable
+configure terminal
+hostname sw-lab1-lmlr
+enable secret Cisco123
+service password-encryption
+
+line console 0
+ password Consola123
+ login
+ exit
+
+line vty 0 4
+ password Remoto123
+ login
+ exit
+
+banner motd # ACCESO SOLO A PERSONAL AUTORIZADO #
+
+end
+copy running-config startup-config
+```
+
+
+
+
+
+
+
 ```bash
 acceso restringido - solo personal autorizado 
 
