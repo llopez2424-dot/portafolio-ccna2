@@ -299,7 +299,7 @@ interface fa0/7
  exit
 ```
 # verificar la configuracion de la vlan
-<img width="1440" height="900" alt="! imagen de verificacion de vlan" src="https://github.com/user-attachments/assets/3856b243-dd22-4d5f-abd5-7989328f54b0" />
+![imagen de verificacion de vlan] <img width="1440" height="900" alt="! imagen de verificacion de vlan" src="https://github.com/user-attachments/assets/3856b243-dd22-4d5f-abd5-7989328f54b0" />
 
 
 
