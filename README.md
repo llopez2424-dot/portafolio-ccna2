@@ -300,3 +300,6 @@ interface fa0/7
 ```
 
 # verificar la configuracion de la vlan
+imgs/![imagen de verificacion de vlan].png
+
+
