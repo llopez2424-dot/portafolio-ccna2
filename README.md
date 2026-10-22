@@ -298,4 +298,5 @@ interface fa0/7
  no shutdown
  exit
 ```
+
 # verificar la configuracion de la vlan
