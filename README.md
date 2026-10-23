@@ -778,9 +778,8 @@ Comprobar que la PC tenga:
 4. Verificar las subinterfaces del router con `show ip interface brief`.
 5. Comprobar que los cables estén conectados correctamente.
 
-## Conclusión
 
-El comando `ping` permite comprobar si existe comunicación entre los dispositivos de la red TechCorp. Si las pruebas son exitosas, se confirma que las conexiones y la configuración de las VLAN funcionan correctamente para los destinos probados.
+## Evidencia de verificación de conectividad con Ping
 
-
+![Verificación de conectividad con Ping](<imagenes/verificación de ping.png>)
 
