@@ -759,7 +759,7 @@ Comprobar que la PC tenga:
 - Una dirección IP perteneciente a su VLAN.
 - La máscara de subred `255.255.255.0`.
 - El gateway predeterminado correspondiente a su VLAN.
-
+ ```` 
 ## 4. Resultados esperados
 
 | Prueba | Resultado esperado |
