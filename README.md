@@ -789,3 +789,19 @@ Comprobar que la PC tenga:
 ## Archivo de Packet Tracer
 
 <a href="proyecto.pkt" download>📥 Descargar proyecto de Packet Tracer</a>
+
+
+### ¿Cuál fue el mayor reto técnico que enfrentaste en esta unidad?
+Para mí, lo más difícil fue **hacer el enrutamiento entre las VLANs con el router (Router-on-a-Stick)**. Al principio me costó trabajo entender cómo conectar todo y configurar bien las subinterfaces del router para que comunicaran a las diferentes computadoras. También se me complicó la parte de la documentación en GitHub, porque por culpa de unos espacios y unos acentos al revés que dejé abiertos, **no se querían cargar ni las imágenes de evidencia ni el enlace para descargar mi archivo de Packet Tracer**.
+
+---
+
+### Bitácora de Errores
+
+| Sección | Lo que me pasó y cómo lo arreglé |
+| :--- | :--- |
+| **Error 1** | **No me daba Ping entre diferentes VLANs porque olvidé el comando de encapsulación.**<br>Creé las subinterfaces en el router pero se me pasó ponerles el comando `encapsulation dot1Q`, así que el router no sabía a qué VLAN pertenecía cada red y el tráfico no pasaba. |
+| **Solución 1** | Entré a la configuración de cada subinterfaz en el router, le puse el comando `encapsulation dot1Q` seguido del número de su VLAN, levanté las interfaces y ya funcionó el Ping entre las PCs. |
+| **Error 2** | **El enlace de Packet Tracer y la imagen del Ping salían como texto normal en GitHub.**<br>Cuando subí mi proyecto a GitHub, el link para descargar el archivo `.pkt` y la imagen de los resultados se veían feos, como texto plano con corchetes. Esto pasó porque dejé un bloque de código abierto con tres acentos (` ``` `) y porque el nombre de mi imagen tenía espacios en blanco. |
+| **Solución 2** | Entré a editar el archivo `README.md`, busqué dónde faltaba cerrar los acentos y los puse bien. Después cambié los enlaces de Markdown normales por etiquetas de HTML (`<a>` y `<img>`) para que GitHub no se confundiera con los espacios y el link de descarga se volviera azul. |
+
