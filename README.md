@@ -1,8 +1,8 @@
-1._ # Crear el diagrama y cablear acorde a la topologia.
+# 1._Crear el diagrama y cablear acorde a la topologia.
 ![diagrama de topologia 1](/imgs/1-diagrama.png)
 > creando la topologia
 
-# Crear la tabla de direccionamiento
+# 2._Crear la tabla de direccionamiento
 ### Tabla A: Dispositivos Intermedios (Routers y Switches)
 
 | Dispositivo / Interfaz | VLAN | Segmento de Red Base | Dirección IP a Calcular / Configurar | Máscara de Subred | Gateway por Defecto |
@@ -37,7 +37,7 @@
 | **PC-Direccion-B** | SW-Lab2 -> Fa0/7 | 30 | **192.168.30.2/24** | 192.168.30.254 |
 
 
-# Asignar nombre a los dispositivos con tus iniciales al final
+# 3._Asignar nombre a los dispositivos con tus iniciales al final
 
 ```cisco
 Switch>enable
@@ -76,7 +76,7 @@ r1-core-lmlr#
 ```
 >cambie el nombre del router
 
-# Realizar las tareas de configuracion básica de sw y router (contraseñas), y mensaje del dia.
+# 4._Realizar las tareas de configuracion básica de sw y router (contraseñas), y mensaje del dia.
 
 
 ## sw-core-lmlr
@@ -225,7 +225,7 @@ r1-core-lmlr(config-subif)# exit
 %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0/0/0.111, changed state to up
 ```
 
-# Crear las VLANs
+# 5._Crear las VLANs
 
 
 ```cisco
@@ -271,7 +271,7 @@ Switch(config)#vlan 999
 Switch(config-vlan)#name Blackhole
 Switch(config-vlan)#exit
 ```
-# Asignar los puertos a las VLANS
+# 6._Asignar los puertos a las VLANS
 ## sw-core-lmlr
 ``` interface fa0/9
  switchport mode access
@@ -298,6 +298,489 @@ interface fa0/7
  no shutdown
  exit
 ```
+> se hace eso con los sw1 y sw2
+
+````
+
+# 7._Verificación de la Configuración de VLANs — TechCorp
+
+## Objetivo
+Verificar que las VLAN estén configuradas correctamente en los switches y comprobar el estado de los puertos y enlaces troncales de la red.
+
+## 1. VLAN configuradas
+
+| VLAN | Nombre | Función |
+|---|---|---|
+| 10 | ADMINISTRACION | Equipos de administración |
+| 20 | LABORATORIOS | Equipos de laboratorio |
+| 30 | DIRECCION | Equipos de dirección |
+| 99 | GESTION | Administración de switches |
+| 111 | NATIVA | VLAN nativa de los enlaces troncales |
+| 999 | BLACKHOLE | Puertos no utilizados |
+
+## 2. Comandos para verificar las VLAN
+
+### Ver las VLAN creadas
+```cisco
+show vlan brief
+```
+
+### Verificar los enlaces troncales
+```cisco
+show interfaces trunk
+```
+
+### Verificar el estado de los puertos
+```cisco
+show interfaces status
+```
+
+### Verificar la configuración de un puerto específico
+```cisco
+show interfaces fastEthernet 0/10 switchport
+```
+
+### Revisar la configuración actual del switch
+```cisco
+show running-config
+```
+
+## 3. Verificar las interfaces del router
+
+```cisco
+show ip interface brief
+```
+
+Este comando permite revisar las interfaces, las direcciones IP y su estado.
+
+## 4. Asignación de puertos en SW-LAB1-LMLR
+
+| Puertos | VLAN | Función |
+|---|---|---|
+| Fa0/1 - Fa0/3 | 10 | Administración |
+| Fa0/4 - Fa0/6 | 20 | Laboratorios |
+| Fa0/7 | 30 | Dirección |
+| Fa0/8 - Fa0/24 | 999 | Puertos reservados o no utilizados |
+| Gig0/1 - Gig0/2 | 999 | Puertos reservados o no utilizados |
+
+
+## 5. Resultado esperado
+
+- Las VLAN aparecen con estado `active`.
+- Los equipos están conectados a la VLAN correspondiente.
+- Los enlaces troncales permiten las VLAN necesarias.
+- La VLAN nativa de los enlaces troncales es la VLAN 111.
+- Las interfaces del router están activas y tienen las direcciones IP correspondientes.
+
+````
+
+# 8._Habilitar los enlaces troncales.
+
+
+## 1. Configuración del switch principal (SW-Core-LMLR)
+
+```cisco
+enable
+configure terminal
+
+interface fastEthernet 0/10
+ switchport mode trunk
+ switchport trunk native vlan 111
+ switchport trunk allowed vlan 10,20,30,99,111
+ no shutdown
+exit
+
+interface fastEthernet 0/11
+ switchport mode trunk
+ switchport trunk native vlan 111
+ switchport trunk allowed vlan 10,20,30,99,111
+ no shutdown
+exit
+
+end
+copy running-config startup-config
+```
+
+## 2. Configuración del switch de laboratorios 1 (SW-LAB1-LMLR)
+
+```cisco
+enable
+configure terminal
+
+interface fastEthernet 0/10
+ switchport mode trunk
+ switchport trunk native vlan 111
+ switchport trunk allowed vlan 10,20,30,99,111
+ no shutdown
+exit
+
+end
+copy running-config startup-config
+```
+
+## 3. Configuración del switch de laboratorios 2 (SW-LAB2-LMLR)
+
+```cisco
+enable
+configure terminal
+
+interface fastEthernet 0/11
+ switchport mode trunk
+ switchport trunk native vlan 111
+ switchport trunk allowed vlan 10,20,30,99,111
+ no shutdown
+exit
+
+end
+copy running-config startup-config
+```
+
+## 4. Verificar los enlaces troncales
+
+Ejecutar en cada switch:
+
+```cisco
+show interfaces trunk
+```
+
+También se puede revisar el estado de los puertos:
+
+```cisco
+show interfaces status
+```
+
+
+# 9._Verificación de Enlaces Troncales — TechCorp
+
+
+
+## 1. Verificar los enlaces troncales
+
+Ejecutar el siguiente comando en cada switch:
+
+```cisco
+show interfaces trunk
+```
+
+Este comando muestra los puertos en modo troncal, la VLAN nativa y las VLAN permitidas.
+
+## 2. Verificar la configuración de un puerto
+
+```cisco
+show interfaces fastEthernet 0/10 switchport
+```
+
+Este comando permite revisar el modo del puerto y su configuración de VLAN.
+
+## 3. Verificar las VLAN permitidas
+
+```cisco
+show interfaces trunk
+```
+
+Comprobar que estén permitidas las siguientes VLAN:
+
+- VLAN 10: ADMINISTRACION
+- VLAN 20: LABORATORIOS
+- VLAN 30: DIRECCION
+- VLAN 99: GESTION
+- VLAN 111: NATIVA
+
+## 4. Verificar el estado de los puertos
+
+```cisco
+show interfaces status
+```
+
+El puerto debe estar conectado si tiene un cable funcional conectado al otro dispositivo.
+
+## 5. Resultado esperado
+
+- Los puertos troncales deben aparecer en estado `trunking`.
+- La VLAN nativa debe ser la VLAN 111.
+- Las VLAN permitidas deben ser 10, 20, 30, 99 y 111.
+- Los enlaces deben estar conectados correctamente en ambos extremos.
+
+
+
+< La verificación de los enlaces troncales permite comprobar que los switches puedan transportar el tráfico de las diferentes VLAN a través de sus conexiones. Esto ayuda a detectar errores de configuración y mantener la comunicación de la red TechCorp.
+
+
+# 9._ Guardar la Configuración 
+
+
+## 1. Guardar la configuración en los switches
+
+Ejecutar en cada switch: SW-Core-LMLR, SW-LAB1-LMLR y SW-LAB2-LMLR.
+
+```cisco
+enable
+copy running-config startup-config
+```
+
+Cuando aparezca el mensaje:
+
+```text
+Destination filename [startup-config]?
+```
+
+Presionar **Enter** para confirmar.
+
+## 2. Guardar la configuración en el router
+
+Ejecutar en el router R1-Core-LMLR:
+
+```cisco
+enable
+copy running-config startup-config
+```
+
+Presionar **Enter** para confirmar el nombre del archivo de destino si el equipo lo solicita.
+
+## 3. Verificar que la configuración se guardó
+
+Para revisar la configuración activa:
+
+```cisco
+show running-config
+```
+
+Para revisar la configuración guardada:
+
+```cisco
+show startup-config
+```
+
+
+# 10._ Configuración de Subinterfaces en el Router — TechCorp
+
+
+## 1. Configuración del router R1-Core-LMLR
+
+```cisco
+enable
+configure terminal
+
+interface gigabitEthernet 0/0
+ no shutdown
+exit
+
+interface gigabitEthernet 0/0.10
+ encapsulation dot1Q 10
+ ip address 192.168.10.254 255.255.255.0
+exit
+
+interface gigabitEthernet 0/0.20
+ encapsulation dot1Q 20
+ ip address 192.168.20.254 255.255.255.0
+exit
+
+interface gigabitEthernet 0/0.30
+ encapsulation dot1Q 30
+ ip address 192.168.30.254 255.255.255.0
+exit
+
+interface gigabitEthernet 0/0.99
+ encapsulation dot1Q 99
+ ip address 192.168.99.254 255.255.255.0
+exit
+
+interface gigabitEthernet 0/0.111
+ encapsulation dot1Q 111 native
+ ip address 192.168.111.254 255.255.255.0
+exit
+
+end
+copy running-config startup-config
+```
+
+## 2. Direcciones IP de las subinterfaces
+
+| Subinterfaz | VLAN | Dirección IP | Máscara |
+|---|---:|---|---|
+| G0/0.10 | 10 | 192.168.10.254 | 255.255.255.0 |
+| G0/0.20 | 20 | 192.168.20.254 | 255.255.255.0 |
+| G0/0.30 | 30 | 192.168.30.254 | 255.255.255.0 |
+| G0/0.99 | 99 | 192.168.99.254 | 255.255.255.0 |
+| G0/0.111 | 111 | 192.168.111.254 | 255.255.255.0 |
+
+## 3. Verificar la configuración
+
+Para revisar el estado de las interfaces:
+
+```cisco
+show ip interface brief
+```
+
+Para revisar las subinterfaces y sus direcciones:
+
+```cisco
+show running-config
+```
+
+
+# 11._Asignación de Direccionamiento IP y Encapsulamiento Dot1Q
+
+## 1. Configuración del router R1-Core-LMLR
+
+```cisco
+enable
+configure terminal
+
+interface gigabitEthernet 0/0
+ no shutdown
+exit
+
+interface gigabitEthernet 0/0.10
+ encapsulation dot1Q 10
+ ip address 192.168.10.254 255.255.255.0
+exit
+
+interface gigabitEthernet 0/0.20
+ encapsulation dot1Q 20
+ ip address 192.168.20.254 255.255.255.0
+exit
+
+interface gigabitEthernet 0/0.30
+ encapsulation dot1Q 30
+ ip address 192.168.30.254 255.255.255.0
+exit
+
+interface gigabitEthernet 0/0.99
+ encapsulation dot1Q 99
+ ip address 192.168.99.254 255.255.255.0
+exit
+
+interface gigabitEthernet 0/0.111
+ encapsulation dot1Q 111 native
+ ip address 192.168.111.254 255.255.255.0
+exit
+
+end
+copy running-config startup-config
+```
+
+## 2. Tabla de direccionamiento IP
+
+| VLAN | Nombre | Red | Gateway | Máscara |
+|---|---|---|---|---|
+| 10 | ADMINISTRACION | 192.168.10.0/24 | 192.168.10.254 | 255.255.255.0 |
+| 20 | LABORATORIOS | 192.168.20.0/24 | 192.168.20.254 | 255.255.255.0 |
+| 30 | DIRECCION | 192.168.30.0/24 | 192.168.30.254 | 255.255.255.0 |
+| 99 | GESTION | 192.168.99.0/24 | 192.168.99.254 | 255.255.255.0 |
+| 111 | NATIVA | 192.168.111.0/24 | 192.168.111.254 | 255.255.255.0 |
+
+## 3. ¿Qué es el encapsulamiento Dot1Q?
+
+El encapsulamiento Dot1Q utiliza el estándar IEEE 802.1Q para identificar a qué VLAN pertenece cada trama que pasa por un enlace troncal.
+
+Ejemplo:
+
+```cisco
+encapsulation dot1Q 10
+```
+
+Este comando identifica el tráfico de la VLAN 10 en la subinterfaz correspondiente.
+
+Para la VLAN nativa se utiliza:
+
+```cisco
+encapsulation dot1Q 111 native
+```
+
+## 4. Verificación de la configuración
+
+Para comprobar que las interfaces estén activas:
+
+```cisco
+show ip interface brief
+```
+
+Para revisar las subinterfaces y el encapsulamiento configurado:
+
+```cisco
+show running-config
+```
+
+
+#12._ Verificación de Conectividad con Ping
+
+## 1. Verificar la conexión con el gateway
+
+Desde una PC de la VLAN 10, abrir **Desktop > Command Prompt** y ejecutar:
+
+```cmd
+ping 192.168.10.254
+```
+
+Desde una PC de la VLAN 20:
+
+```cmd
+ping 192.168.20.254
+```
+
+Desde una PC de la VLAN 30:
+
+```cmd
+ping 192.168.30.254
+```
+
+Desde una PC de la VLAN 99:
+
+```cmd
+ping 192.168.99.254
+```
+
+## 2. Verificar la comunicación entre computadoras
+
+Desde una PC de la VLAN 10, probar la conexión con una PC de la VLAN 20:
+
+```cmd
+ping 192.168.20.11
+```
+
+Para comprobar la comunicación con una PC de la VLAN 30:
+
+```cmd
+ping 192.168.30.11
+```
+
+> Las direcciones de destino deben coincidir con las direcciones IP reales configuradas en las computadoras.
+
+## 3. Verificar la configuración IP de una PC
+
+En la ventana **Desktop > Command Prompt**, ejecutar:
+
+```cmd
+ipconfig
+```
+
+Comprobar que la PC tenga:
+- Una dirección IP perteneciente a su VLAN.
+- La máscara de subred `255.255.255.0`.
+- El gateway predeterminado correspondiente a su VLAN.
+
+## 4. Resultados esperados
+
+| Prueba | Resultado esperado |
+|---|---|
+| PC VLAN 10 → 192.168.10.254 | Respuesta exitosa |
+| PC VLAN 20 → 192.168.20.254 | Respuesta exitosa |
+| PC VLAN 30 → 192.168.30.254 | Respuesta exitosa |
+| PC VLAN 99 → 192.168.99.254 | Respuesta exitosa |
+| PC VLAN 10 → PC VLAN 20 | Respuesta exitosa si ambas están configuradas correctamente |
+
+## 5. ¿Qué hacer si falla el Ping?
+
+1. Verificar la dirección IP, la máscara y el gateway de la PC con `ipconfig`.
+2. Comprobar que el puerto del switch esté asignado a la VLAN correcta con `show vlan brief`.
+3. Revisar los enlaces troncales con `show interfaces trunk`.
+4. Verificar las subinterfaces del router con `show ip interface brief`.
+5. Comprobar que los cables estén conectados correctamente.
+
+## Conclusión
+
+El comando `ping` permite comprobar si existe comunicación entre los dispositivos de la red TechCorp. Si las pruebas son exitosas, se confirma que las conexiones y la configuración de las VLAN funcionan correctamente para los destinos probados.
 
 
 
