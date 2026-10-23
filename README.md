@@ -1,4 +1,4 @@
-# Crear el diagrama y cablear acorde a la topologia.
+1._ # Crear el diagrama y cablear acorde a la topologia.
 ![diagrama de topologia 1](/imgs/1-diagrama.png)
 > creando la topologia
 
@@ -299,7 +299,5 @@ interface fa0/7
  exit
 ```
 
-# verificar la configuracion de la vlan
-imgs/![imagen de verificacion de vlan].png
 
 
