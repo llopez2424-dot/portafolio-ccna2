@@ -783,5 +783,5 @@ Comprobar que la PC tenga:
 
 
 
-![Verificación de conectividad con Ping](imgs/verificaciondeping.png)
+![Verificación de conectividad con Ping](imgs/verificacion de ping.png)
 
