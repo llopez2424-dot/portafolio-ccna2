@@ -780,6 +780,7 @@ Comprobar que la PC tenga:
 
  ```` 
 ## Evidencia de verificación de conectividad con Ping
+![Verificación de conectividad con Ping](imgs/verificacion%20de%20ping.png)
 
 
 
