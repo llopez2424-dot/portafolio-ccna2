@@ -785,3 +785,7 @@ Comprobar que la PC tenga:
 
 ![Verificación de conectividad con Ping](imgs/verificacion de ping.png)
 
+
+# Archivo de packer tracer
+proyecto.pkt
+
