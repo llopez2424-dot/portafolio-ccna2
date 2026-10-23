@@ -769,7 +769,7 @@ Comprobar que la PC tenga:
 | PC VLAN 30 → 192.168.30.254 | Respuesta exitosa |
 | PC VLAN 99 → 192.168.99.254 | Respuesta exitosa |
 | PC VLAN 10 → PC VLAN 20 | Respuesta exitosa si ambas están configuradas correctamente |
-
+ ```` 
 ## 5. ¿Qué hacer si falla el Ping?
 
 1. Verificar la dirección IP, la máscara y el gateway de la PC con `ipconfig`.
@@ -778,7 +778,7 @@ Comprobar que la PC tenga:
 4. Verificar las subinterfaces del router con `show ip interface brief`.
 5. Comprobar que los cables estén conectados correctamente.
 
-
+ ```` 
 ## Evidencia de verificación de conectividad con Ping
 
 
