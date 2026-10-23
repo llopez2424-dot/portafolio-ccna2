@@ -805,3 +805,4 @@ Para mí, lo más difícil fue **hacer el enrutamiento entre las VLANs con el ro
 | **Error 2** | **El enlace de Packet Tracer y la imagen del Ping salían como texto normal en GitHub.**<br>Cuando subí mi proyecto a GitHub, el link para descargar el archivo `.pkt` y la imagen de los resultados se veían feos, como texto plano con corchetes. Esto pasó porque dejé un bloque de código abierto con tres acentos (` ``` `) y porque el nombre de mi imagen tenía espacios en blanco. |
 | **Solución 2** | Entré a editar el archivo `README.md`, busqué dónde faltaba cerrar los acentos y los puse bien. Después cambié los enlaces de Markdown normales por etiquetas de HTML (`<a>` y `<img>`) para que GitHub no se confundiera con los espacios y el link de descarga se volviera azul. |
 
+# video explicativo
