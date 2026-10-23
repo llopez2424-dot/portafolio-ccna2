@@ -786,4 +786,5 @@ Comprobar que la PC tenga:
 
 
 ## Archivo de Packet Tracer
-[Descargar proyecto de Packet Tracer](proyecto.pkt)
+
+<a href="proyecto.pkt" download>📥 Descargar proyecto de Packet Tracer</a>
