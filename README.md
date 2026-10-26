@@ -806,3 +806,5 @@ Para mí, lo más difícil fue **hacer el enrutamiento entre las VLANs con el ro
 | **Solución 2** | Entré a editar el archivo `README.md`, busqué dónde faltaba cerrar los acentos y los puse bien. Después cambié los enlaces de Markdown normales por etiquetas de HTML (`<a>` y `<img>`) para que GitHub no se confundiera con los espacios y el link de descarga se volviera azul. |
 
 # video explicativo
+[Ver Video Explicativo](video%20explicativo.mp4)
+
